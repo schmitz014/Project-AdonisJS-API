@@ -18,7 +18,7 @@ export default class MomentsController {
 
     const image = request.file('image', this.validatioOptions)
 
-    if (image){
+    if (image) {
       const imageName = `${uuidv4()}.${image.extname}`
 
       await image.move(Application.tmpPath('uploads'), {
