@@ -13,7 +13,6 @@ export default class MomentsController {
   }
 
   public async store({ request, response }: HttpContextContract) {
-
     const body = request.body()
 
     const image = request.file('image', this.validatioOptions)
@@ -35,6 +34,14 @@ export default class MomentsController {
     return {
       message: 'Moment has been created successfully',
       data: moment,
+    }
+  }
+
+  public async index() {
+    const moments = await Moment.all()
+
+    return {
+      data: moments,
     }
   }
 }
